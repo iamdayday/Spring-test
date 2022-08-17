@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>net.seehope</groupId>
+    <artifactId>foodie-foo</artifactId>
+    <version>1.0-SNAPSHOT</version>
+    <modules>
+        <module>foodie-shop</module>
+        <module>foodie-center</module>
+        <module>foodie-security-web</module>
+        <module>foodie-security-app</module>
+        <module>foodie-common</module>
+    </modules>
+    <packaging>pom</packaging>
+
+    <properties>
+        <maven.compiler.source>8</maven.compiler.source>
+        <maven.compiler.target>8</maven.compiler.target>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+        <java.version>1.8</java.version>
+        <spring.cloud-version>Dalston.SR2</spring.cloud-version>
+        <spring.io.version>Brussels-SR4</spring.io.version>
+        <!--   <spring.cloud-version>Hoxton.SR8</spring.cloud-version>
+     <spring-boot.version>2.3.5.RELEASE</spring-boot.version>
+     <spring.io.version>Cairo-SR8</spring.io.version>-->
+    </properties>
+
+
+    <dependencyManagement>
+        <!--引入spring io 以及 spirng cloud 项目进行依赖管理  -->
+        <dependencies>
+            <dependency>
+                <groupId>org.springframework.cloud</groupId>
+                <artifactId>spring-cloud-dependencies</artifactId>
+                <version>${spring.cloud-version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+            <dependency>
+                <groupId>io.spring.platform</groupId>
+                <artifactId>platform-bom</artifactId>
+                <version>${spring.io.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+            <dependency>
+                <groupId>mysql</groupId>
+                <artifactId>mysql-connector-java</artifactId>
+                <version>8.0.28</version>
+            </dependency>
+            <!--       <dependency>
+                       <groupId>org.springframework.boot</groupId>
+                       <artifactId>spring-boot-dependencies</artifactId>
+                       <version>${spring-boot.version}</version>
+                       <type>pom</type>
+                       <scope>import</scope>
+                   </dependency>-->
+        </dependencies>
+    </dependencyManagement>
+</project>

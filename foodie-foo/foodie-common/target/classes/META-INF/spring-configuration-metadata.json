@@ -1,0 +1,32 @@
+{
+  "hints": [],
+  "groups": [
+    {
+      "sourceType": "net.seehope.foodie.common.properties.ProjectProperties",
+      "name": "net.seehope",
+      "type": "net.seehope.foodie.common.properties.ProjectProperties"
+    }
+  ],
+  "properties": [
+    {
+      "sourceType": "net.seehope.foodie.common.properties.ProjectProperties",
+      "name": "net.seehope.form-login",
+      "type": "net.seehope.foodie.common.properties.FormLoginProperties"
+    },
+    {
+      "sourceType": "net.seehope.foodie.common.properties.ProjectProperties",
+      "name": "net.seehope.image-validate-code",
+      "type": "net.seehope.foodie.common.properties.ImageValidateCodeProperties"
+    },
+    {
+      "sourceType": "net.seehope.foodie.common.properties.ProjectProperties",
+      "name": "net.seehope.static-permit-url",
+      "type": "java.util.List<java.lang.String>"
+    },
+    {
+      "sourceType": "net.seehope.foodie.common.properties.ProjectProperties",
+      "name": "net.seehope.validate-code",
+      "type": "net.seehope.foodie.common.properties.ValidateCodeProperties"
+    }
+  ]
+}

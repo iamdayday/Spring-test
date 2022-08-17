@@ -1,0 +1,33 @@
+spring:
+  datasource:
+    url: jdbc:mysql://localhost:3306/mybatis?useUnicode=true&characterEncoding=UTF-8&autoReconnect=true&serverTimezone=UTC
+    password: root
+    username: root
+    driver-class-name: com.mysql.cj.jdbc.Driver
+  thymeleaf:
+    cache: false
+security:
+  user:
+    name: root
+    password: root
+mybatis:
+  type-aliases-package: net.seehope.**.entity
+  mapper-locations:
+    - classpath*:mappers/**/*.xml
+  configuration:
+    lazy-loading-enabled: true
+    cache-enabled: true
+    aggressive-lazy-loading: false
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+net:
+  seehope:
+    staticPermitUrl:
+      - /css/*
+      - /fonts/*
+      - /images/*
+    formLogin:
+      loginPage: /index.html
+      loginProcessingUrl: /authentication/form
+      usernameParam: username
+      passwordParam: password
+      loginType: JSON
