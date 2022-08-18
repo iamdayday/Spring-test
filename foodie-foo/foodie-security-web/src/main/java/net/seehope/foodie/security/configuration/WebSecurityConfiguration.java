@@ -6,6 +6,7 @@ import net.seehope.foodie.common.properties.ProjectConstant;
 import net.seehope.foodie.common.properties.ProjectProperties;
 import net.seehope.foodie.common.validate.ValidateCodeFilter;
 import net.seehope.foodie.common.validate.authentication.MobileAuthenticationConfiguration;
+import net.seehope.foodie.common.validate.processor.ValidateCodeProcessor;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
@@ -26,9 +27,11 @@ public class WebSecurityConfiguration extends WebSecurityConfigurerAdapter {
     private ProjectProperties properties;
     private AuthenticationSuccessHandler authenticationSuccessHandler;
     private AuthenticationFailureHandler authenticationFailureHandler;
-    private SessionStrategy sessionStrategy;
 
+    private SessionStrategy sessionStrategy;
     private MobileAuthenticationConfiguration mobileAuthenticationConfiguration;
+
+    private List<ValidateCodeProcessor> validateCodeProcessors;
 
     /**
      * security 认证，授权，攻击防护
@@ -41,10 +44,8 @@ public class WebSecurityConfiguration extends WebSecurityConfigurerAdapter {
         FormLoginProperties formLogin = properties.getFormLogin();
 
         ValidateCodeFilter validateCodeFilter = new ValidateCodeFilter();
-        validateCodeFilter.setProperties(properties);
-        validateCodeFilter.setSessionStrategy(sessionStrategy);
         validateCodeFilter.setAuthenticationFailureHandler(authenticationFailureHandler);
-        validateCodeFilter.afterPropertiesSet();//手动初始化方法
+        validateCodeFilter.setValidateCodeProcessors(validateCodeProcessors);
         //添加过滤器，在验证username、password之前先验证 验证码是否正确。
         http.addFilterBefore(validateCodeFilter, UsernamePasswordAuthenticationFilter.class);
 

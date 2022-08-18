@@ -18,4 +18,6 @@ public interface ValidateCodeProcessor {
     String getCodeType();
 
     Class getValidateCodeType();
+
+    Boolean isNeedValidate(ServletWebRequest request);
 }
